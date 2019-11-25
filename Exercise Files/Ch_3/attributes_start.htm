@@ -7,13 +7,33 @@
     <script type="text/javascript" src="../jquery-3.0.0.js"></script>
     <script type="text/javascript">
         $("document").ready(function() {
+            //$("#example").after("<p id='alts'>");//will add a new p after the div with id of example
+            
+            /*$("img").each(function() {
+                $("#alts").append($(this).attr("alt") + " ");
+            });*///will take the alt text from each img, and add it to the new alts paragraph
+            
+            //$("a").attr("title", "photo by some photographer");//simply adds a title attribute and it's text to each a tag
+            //$("a").attr("target", "_blank");//adds a target attr and sets it so that each link will open in a new tab
+            
+            //in addition to changing one attribute at a time, you can do multiple with a js object:
+        
+            
+            $("img").attr({src: "images/spring.jpg",
+                          title: "spring all the stuff",
+                          border: "100px solid",//haha
+                           //remember, if the attr are stipulated below in the html, it's more specific and will override the script above...
+                           height: "100px",
+                           width: "500px"//haha
+                          });
+            
         });
     </script>
     <style type="text/css">
         img {
             margin: 20px;
-            width: 400px;
-            height: 400px;
+         /*   width: 400px;
+            height: 400px;*/
         }
     </style>
 </head>
