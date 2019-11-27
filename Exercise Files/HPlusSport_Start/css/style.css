@@ -321,6 +321,11 @@ em {
     /*.product-list*/
 }
 
+#productControls {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
 #products .imageheader {
     background: -webkit-linear-gradient(top, transparent, transparent), url(../images/backgrounds/swimming.jpg);
     background: linear-gradient(180deg, transparent, transparent), url(../images/backgrounds/swimming.jpg);
