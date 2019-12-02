@@ -8,6 +8,8 @@
     <script type="text/javascript" src="../jquery-3.0.0.js"></script>
     <script>
         $("document").ready(function() {
+            
+            
             //Change the product name field colors
             $("#products h2.product-name[data-type='vitamin']").css("background-color", "green");
             $("#products h2.product-name[data-type='mineralwater']").css("background-color", "blue");
@@ -16,7 +18,33 @@
             //set display: none when boxes are unchecked
             //$("#prodControlForm input").attr(["checked"]).css("font-size", "72pt");
             
-            $("#products li.product-item").attr("data-type=proteinbar").css("display", "none");
+            //$("#products li.product-item").css("display", "none");
+            $("#products li.product-item").has("h2.product-name[data-type='vitamin']").css("display", "none");
+
+
+
+            
+            // $("#products li").change(function() {
+
+              
+            //   if($(this).not(':checked')) {
+            //     $("#products li.product-item").toggleClass('.prodOnOff');
+            //   }
+            //   else{
+            //     $("#products li.product-item").removeClass('.prodOnOff');
+            //   }
+
+            // });
+
+            // $('#products li.product-item').change(function() {
+            //   if($(this).not(':checked')) {
+            //     $(this).addClass('.prodOnOff');
+            //   }else{
+            //     $(this).removeClass('.prodOnOff');
+            //   }
+              
+            // });
+
             
             
         });

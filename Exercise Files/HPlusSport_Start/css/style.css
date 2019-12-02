@@ -321,6 +321,10 @@ em {
     /*.product-list*/
 }
 
+.prodOnOff {
+    display: none;
+}
+
 #productControls {
     margin-top: 10px;
     margin-left: 20px;
