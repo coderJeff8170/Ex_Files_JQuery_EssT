@@ -19,8 +19,24 @@
             //$("#prodControlForm input").attr(["checked"]).css("font-size", "72pt");
             
             //$("#products li.product-item").css("display", "none");
-            $("#products li.product-item").has("h2.product-name[data-type='vitamin']").css("display", "none");
+            //$("#products li.product-item").has("h2.product-name[data-type='vitamin']").css("display", "none");
+            //var vitaminProduct = $("#products li.product-item").has("h2.product-name[data-type='vitamin']");
+            var productItem = "#products li.product-item";
+            var vitaminProduct = "h2.product-name[data-type='vitamin']";
+            var mineralProduct = "h2.product-name[data-type='vitamin']";
+            var proteinProduct = "h2.product-name[data-type='vitamin']";
 
+            $("#vitaminCheck").change(function(){
+                $(productItem).has(vitaminProduct).toggleClass("prodOnOff");
+            });//well looky there!!
+
+            $("#mineralCheck").change(function(){
+                $(productItem).has(mineralProduct).toggleClass("prodOnOff");
+            });
+
+            $("#proteinCheck").change(function(){
+                $(productItem).has(proteinProduct).toggleClass("prodOnOff");
+            });
 
 
             
@@ -95,9 +111,9 @@
     <div id="productControls">
     <p>Show:</p>
     <form id="prodControlForm">
-  <input type="checkbox" name="vitamin" value="vitamin" checked> Vitamins
-  <input type="checkbox" name="mineralWater" value="mineralWater" checked> Mineral Waters
-  <input type="checkbox" name="proteinBar" value="proteinBar" checked> Protein Bars<br><br>
+  <input id="vitaminCheck" type="checkbox" name="vitamin" value="vitamin" checked> Vitamins
+  <input id="mineralCheck" type="checkbox" name="mineralWater" value="mineralWater" checked> Mineral Waters
+  <input id="proteinCheck" type="checkbox" name="proteinBar" value="proteinBar" checked> Protein Bars<br><br>
 </form>
 </div>
   <ul class="product-list">
