@@ -7,6 +7,23 @@
     <script type="text/javascript" src="../jquery-3.0.0.js"></script>
     <script type="text/javascript">
         $(function() {
+            $("#evtTarget").on("mouseover mouseleave", highlight);
+
+            $("#evtTarget").on("click", function(evt) {
+                $("#evtTarget").off("mouseover mouseleave", highlight);
+
+                $("#evtTarget").text("You turned it off!");
+                $("#evtTarget").removeClass("highlighted");
+            });
+
+            $("#textEntry").on("keypress", function (evt) {
+                $("#keyPress").text(String.fromCharCode(evt.charCode));
+            });
+
+            function highlight(evt) {
+                $("#evtTarget").toggleClass("highlighted");
+            }
+        
         });
     </script>
     <style type='text/css'>
