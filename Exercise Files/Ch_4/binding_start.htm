@@ -20,6 +20,14 @@
                 $("#keyPress").text(String.fromCharCode(evt.charCode));
             });
 
+            $("#textEntry").on("keypress", function (evt) {
+                $("#keyLogger").css("font-size", "+=1pt");
+                $("#keyBlogger").css("font-size", "+=1pt");
+                //Yeeeeeeesssss!!!!
+                $("#keyLogger").append(String.fromCharCode(evt.charCode));
+                $("#keyBlogger").prepend(String.fromCharCode(evt.charCode));
+            });
+
             function highlight(evt) {
                 $("#evtTarget").toggleClass("highlighted");
             }
@@ -43,6 +51,8 @@
         <p>Type in this text field</p>
         <input id="textEntry" type="text" />
         <p>Last character typed: <span id="keyPress"></span></p>
+        <p>Forwards: <span id="keyLogger"></span></p>
+        <p>Backwards: <span id="keyBlogger"></span></p>
     </div>
 </body>
 

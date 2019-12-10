@@ -38,28 +38,15 @@
                 $(productItem).has(proteinProduct).toggleClass("prodOnOff");
             });
 
+            $(".product-item").click(showProduct);
 
+            function showProduct(evt) {
+              window.open("product.html");
+              console.log(evt.target.parent());
+              //$("productName").text(evt.)
+            }
             
-            // $("#products li").change(function() {
 
-              
-            //   if($(this).not(':checked')) {
-            //     $("#products li.product-item").toggleClass('.prodOnOff');
-            //   }
-            //   else{
-            //     $("#products li.product-item").removeClass('.prodOnOff');
-            //   }
-
-            // });
-
-            // $('#products li.product-item').change(function() {
-            //   if($(this).not(':checked')) {
-            //     $(this).addClass('.prodOnOff');
-            //   }else{
-            //     $(this).removeClass('.prodOnOff');
-            //   }
-              
-            // });
 
             
             
