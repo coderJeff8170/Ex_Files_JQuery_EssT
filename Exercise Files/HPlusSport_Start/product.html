@@ -5,6 +5,38 @@
   <title>HPlus Sport</title>
   <link rel="stylesheet" href="css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script>
+        $("document").ready(function() {
+
+          //var param1 = $.QueryString("myprod");
+          function GetURLParameter(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    console.log(sPageURL);
+    var sURLVariables = sPageURL.split('&');
+    console.log(sURLVariables);
+
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        console.log(sParameterName);
+        if (sParameterName[0] == sParam)
+        {
+            return decodeURIComponent(sParameterName[1]);
+        }
+    }
+}
+
+var thisProd = GetURLParameter('myprod');
+//var name= GetURLParameter('name');
+
+              //myProd = Request.QueryString["myprod"];
+
+              //console.log(JSON.stringify());
+              
+              $("#productName").text(thisProd);//gotta get the data in here!
+        });
+    </script>
 </head>
 <body>
 

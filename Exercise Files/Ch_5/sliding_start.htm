@@ -8,11 +8,18 @@
     <script type="text/javascript">
         $(function() {
             $("#slideup").click(function() {
+                $("#theDiv").slideUp();
             });
             $("#slidedown").click(function() {
+                $("#theDiv").slideDown();
             });
             $("#toggle").click(function() {
+                $("#theDiv").slideToggle("slow", toggleText("super cool job, man!"));
             });
+
+            function toggleText(text) {
+                $("#toggleText").text(text);
+            }
         });
     </script>
     <style type="text/css">
@@ -51,8 +58,10 @@
             <li><code>slideToggle()</code>: toggles the state of the matched elements, either sliding them up or down depending
                 on their current state</li>
         </ul>
+        <div id="toggleText">    </div>
         <div id="theDiv">
         </div>
+
         <button id="slideup">Slide Up</button>
         <button id="slidedown">Slide Down</button>
         <button id="toggle">Toggle Slide</button>

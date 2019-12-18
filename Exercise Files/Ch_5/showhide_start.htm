@@ -8,12 +8,21 @@
     <script type="text/javascript">
         $(function() {
             $("#show").click(function() {
+                $("#theDiv").show("fast");
             });
             $("#hide").click(function() {
+                $("#theDiv").hide(2000, "linear");
             });
             $("#toggle").click(function() {
+                $("#theDiv").toggle("2000", comPlete);
             });
         });
+
+        function comPlete() {
+            $(this).text("Animation Com-PLETE!");
+
+        }
+
     </script>
     <style type="text/css">
         p,

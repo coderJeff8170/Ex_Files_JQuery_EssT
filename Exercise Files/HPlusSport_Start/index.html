@@ -44,14 +44,7 @@
               var prodName = $(evt.target).siblings("h2.product-name").html();
 
               window.open("product.html?myprod=" + encodeURI(prodName));
-              var myProd = Request.QueryString["myprod"];
-              $("#productName").append(myProd);
-              //var newWindow = window.open("product.html");
-              //newWindow.otherName = prodName;
-              //alert(prodName);
-              //newWindow.alert("Jeff");
-              
-              //newWindow($("#productName").text(prodName));
+
             }
 
             
