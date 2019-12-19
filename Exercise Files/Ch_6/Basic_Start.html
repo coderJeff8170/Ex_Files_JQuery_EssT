@@ -18,6 +18,21 @@
       });
       
       function getData() {
+        $.ajax({
+          //first parameter is path to data you want to retrieve
+          url: "testdata.txt",
+          //next is type of retrieval - typically get or post - get is just for reading
+          type: "GET",
+          //next is type of data expected back
+          dataType: "text",//now we have to specify what happens on success or failure of request
+          //to do this requires callback functions...
+          success: successFn,
+          error: errorFn,
+          complete: function(xhr, status) {
+            console.log("The request is com-plete!");
+          }
+
+        })
       }
       
       function successFn(result) {

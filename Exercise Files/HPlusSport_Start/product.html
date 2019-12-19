@@ -9,32 +9,81 @@
     <script>
         $("document").ready(function() {
 
-          //var param1 = $.QueryString("myprod");
-          function GetURLParameter(sParam) {
-    var sPageURL = window.location.search.substring(1);
-    console.log(sPageURL);
-    var sURLVariables = sPageURL.split('&');
-    console.log(sURLVariables);
+          var thisProdId = GetURLParameter('myprodid');
+          var thisProd = GetURLParameter('myprod');
+          var prodInfo = {};
 
-    for (var i = 0; i < sURLVariables.length; i++)
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        console.log(sParameterName);
-        if (sParameterName[0] == sParam)
-        {
-            return decodeURIComponent(sParameterName[1]);
-        }
-    }
-}
 
-var thisProd = GetURLParameter('myprod');
-//var name= GetURLParameter('name');
+          getJSONData(thisProdId);
+          console.log(thisProdId);
 
-              //myProd = Request.QueryString["myprod"];
 
-              //console.log(JSON.stringify());
+          function getJSONData(prodid) {
+            
+            var prodObj = "product-data.json"
+            $.getJSON(prodObj, {
               
-              $("#productName").text(thisProd);//gotta get the data in here!
+            }, successFn);
+            
+          }
+
+          function successFn(result){
+            $.each(result.products, function(i, product) {
+              if (product.prod_id === thisProdId) {
+                //console.log(result.products[i]);
+                prodInfo = result.products[i];
+                prodPhoto = prodInfo.photo_src;
+                $("#productStock").text(prodInfo.in_stock);
+                $("#productPrice").text(prodInfo.retail_price);
+                $("#productDesc").text(prodInfo.description);
+                $(".prod_header").css("backgroundImage", "url(" + prodPhoto + ")");
+                $(".prod_header").css("backgroundPosition", "center");
+                $(".prod_header").css("backgroundRepeat", "no-repeat");
+              }
+              
+            });
+            console.log(prodInfo);
+            //so the assignment of data to each section of page would be here:
+            //nope
+
+
+            //console.log(result.products[5].prod_id);
+            //YAAAAAAAASSSSSSS!
+
+          }
+
+          //function to return unique product info from click on prev. page
+          //returns value of key defined
+          function GetURLParameter(sParam) {
+          
+            var sPageURL = window.location.search.substring(1);
+            //assigns encoded info added to url to 'sPageURL'
+            console.log(sPageURL);
+            var sURLVariables = sPageURL.split('&');
+            //splits the encoded info into an array of variables on each ampersand
+            console.log(sURLVariables);
+
+              //loops through each variable, splitting each (on the =) into an array containing 
+              //the key and the value. If the array contains the key on which the function is called
+              //it'll return the second part of the array, which is the value! Brilliant!
+              for (var i = 0; i < sURLVariables.length; i++)
+              {
+                var sParameterName = sURLVariables[i].split('=');
+                console.log(sParameterName);
+                if (sParameterName[0] == sParam)
+                {
+                    return decodeURIComponent(sParameterName[1]);
+                }
+              }
+          }
+
+              
+          $("#productName").text(thisProd);//gotta get the data in here!
+          //$("#productStock").text(prodInStock);
+          //$("#productPrice").text(prodPrice);
+          //$("#productDesc").text(prodDesc);
+
+
         });
     </script>
 </head>

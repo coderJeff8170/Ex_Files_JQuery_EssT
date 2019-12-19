@@ -42,8 +42,9 @@
 
             function showProduct(evt) {
               var prodName = $(evt.target).siblings("h2.product-name").html();
-
-              window.open("product.html?myprod=" + encodeURI(prodName));
+              var prodId = $(evt.target).parent(".product-item").attr("data-prod_id");
+              console.log(prodId);
+              window.open("product.html?myprod=" + encodeURI(prodName) + "&myprodid=" + encodeURI(prodId));
 
             }
 
